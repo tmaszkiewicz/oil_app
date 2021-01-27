@@ -1,0 +1,105 @@
+{% extends 'oil_app/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+<head>
+<title>Raport olejarkowy</title>
+<!-- Bootstrap CSS -->
+</head>
+{% block body %}
+
+
+<div class="container">
+
+<table class=hoverTable id=myOil> 
+<tr>
+
+<td>
+	<label class="control-label">Name</label>
+	<input class= type="text" id="myName" onkeyup="myFilter(0,'myName')" placeholder="Search for Name.." title="Type in Name">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+	<label class="control-label">CardNo</label>
+	<input class= type="text" id="myCardno" onkeyup="myFilter(1,'myCardno')" placeholder="Search for Cardno.." title="Type in cardNo">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+	<label class="control-label">UserNo</label>
+	<input class= type="text" id="myUserNo" onkeyup="myFilter(2,'myUserNo')" placeholder="Search for Cardno.." title="Type in cardNo">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+	<!--
+	<label class="control-label">UserId</label>
+	<input class= type="text" id="myuserid" onkeyup="myfilter(2,'myuserid')" placeholder="search for userid.." title="type in userid">
+	<span class="glyphicon glyphicon-search"></span>
+	-->
+</td>
+
+<td>
+</td>
+
+</tr>
+
+<tr>
+	<th>
+		Name
+	</th>
+	<th>
+		CardNo
+	</th>
+	<th>
+		UserId
+	</th>
+	<th>
+		TimeStamp / all / recent 48
+	</th>
+<tr>
+
+
+{% for wiersz in wiersze %} 
+
+<tr>
+	{% if wiersz.ilosc_odczytow_48 == 0 %}
+	<td bgcolor="red">
+	{% else %}
+	<td>
+	{% endif %}
+
+		{{wiersz.Name}}
+	</td>
+	{% if wiersz.ilosc_odczytow_48 == 0 %}
+	<td bgcolor="red">
+	{% else %}
+	<td>
+	{% endif %}
+
+		{{ wiersz.TimeCardNr }}
+	</td>
+	{% if wiersz.ilosc_odczytow_48 == 0 %}
+	<td bgcolor="red">
+	{% else %}
+	<td>
+	{% endif %}
+		{{wiersz.PersonalNr}}
+	</td>
+	{% if wiersz.ilosc_odczytow_48 == 0 %}
+	<td bgcolor="red">
+	{% else %}
+	<td>
+	{% endif %}
+		{{ wiersz.ostatni_odczyt}}
+		all:	
+		{{wiersz.ilosc_odczytow}}
+		recently:
+		{{wiersz.ilosc_odczytow_48}}
+	</td>
+<tr>
+
+	
+{% endfor %}
+</table>
+</div>
+{% endblock body %}
+
+

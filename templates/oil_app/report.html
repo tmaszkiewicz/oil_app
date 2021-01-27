@@ -1,0 +1,78 @@
+{% extends 'oil_app/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+<head>
+<title>Raport olejarkowy</title>
+<!-- Bootstrap CSS -->
+</head>
+{% block body %}
+
+
+<div class="container">
+
+
+<table class=hoverTable id=myOil>
+
+<tr>
+
+<td>
+	<label class="control-label">Name</label>
+	<input class= type="text" id="myName" onkeyup="myFilter(0,'myName')" placeholder="Search for Name.." title="Type in Name">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+	<label class="control-label">CardNo</label>
+	<input class= type="text" id="myCardno" onkeyup="myFilter(1,'myCardno')" placeholder="Search for Cardno.." title="Type in cardNo">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+	<label class="control-label">hostname</label>
+	<input class= type="text" id="myhostname" onkeyup="myfilter(2,'myhostname')" placeholder="search for hostname.." title="type in hostname">
+	<span class="glyphicon glyphicon-search"></span>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+	<th>
+		Name
+	</th>
+	<th>
+		CardNo
+	</th>
+	<th>
+		hostname
+	</th>
+	<th>
+		TimeStamp
+	</th>
+<tr>
+
+
+</thead>
+
+{% for odczyt in odczyty %} 
+<tr>
+	<td>
+
+		{{odczyt.name}}
+	</td>
+	<td>
+		{{odczyt.nr_karty}}
+	</td>
+	<td>
+		{{odczyt.hostname}}
+	</td>
+	<td>
+		{{odczyt.timestamp}}
+	</td>
+<tr>
+
+	
+{% endfor %}
+</table>
+</div>
+{% endblock body %}
+
+

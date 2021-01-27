@@ -1,0 +1,18 @@
+{% extends 'oil_app/base.html' %}
+{% block body %}
+
+{% for odczyt in odczyty %} 
+
+	{{odczyt.name}}
+	{{odczyt.nr_karty}}
+	{{odczyt.hostname}}
+	{{odczyt.timestamp}}
+	{{odczyt.timestamp}}
+
+
+
+	
+{% endfor %}
+{% endblock body %}
+
+

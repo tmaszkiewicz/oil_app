@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+{% load bootstrap3 %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="refresh" content="120" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+    <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    	<link rel="stylesheet" href="{% static '/css/fonts.css' %}">
+    	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    	<link rel="stylesheet" href="{% static 'css/Navigation-Clean1.css' %}">
+    	<link rel="stylesheet" href="{% static 'css/Newsletter-Subscription-Form.css' %}">
+    	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<!--
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/Navigation-Clean.css" />
+	<link rel="stylesheet" href="assets/css/styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/Contact-Form-Clean.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/Navigation-with-Search.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	-->
+
+	<title>Raport olejarkowy</title>
+<style style="text/css">
+  	.hoverTable{
+		width:100%; 
+		border-collapse:collapse; 
+	}
+	.hoverTable td{ 
+		padding:7px; border:#4e95f4 1px solid;
+	}
+	/* Define the default color for all the table rows */
+	.hoverTable tr{
+		background: #b8d1f3;
+	}
+	/* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+          background-color: #ffff99;
+    }
+</style>
+	
+</head>
+<body bgcolor="lightgrey">
+ {% block body %}
+{% endblock body %}
+
+</body>
+<script type="text/javascript">
+function myFilter(pos,inp) {
+	var input, filter, table, tr, td, i;
+	input = document.getElementById(inp);
+	filter = input.value.toUpperCase();
+	table = document.getElementById("myOil");
+	tr = table.getElementsByTagName("tr");
+	for (i = 1; i < tr.length; i++) {
+	td = tr[i].getElementsByTagName("td")[pos];
+		if (td) {
+			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	       			tr[i].style.display = "";
+	     		} else {
+			     tr[i].style.display = "none";
+			 }
+	 	}
+	}
+}
+</script>
+</html>
+

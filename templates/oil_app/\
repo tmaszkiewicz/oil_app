@@ -1,0 +1,61 @@
+{% extends 'oil_app/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+<head>
+<title>Raport olejarkowy</title>
+<!-- Bootstrap CSS -->
+</head>
+{% block body %}
+
+
+<div class="container">
+
+<table class=hoverTable>
+<tr>
+	<th>
+		Name
+	</th>
+	<th>
+		CardNo
+	</th>
+	<th>
+		hostname
+	</th>
+	<th>
+		TimeStamp
+	</th>
+<tr>
+
+</thead>
+
+{% for wiersz in wiersze %} 
+
+{% if wiersz.ilosc_odczytow_48 == 0 %}
+<tr bgcolor="green">
+{% endif %}
+{% if wiersz.ilosc_odczytow_48 == 3 %}
+<tr bgcolor="red">
+{% endif %}
+	<td>
+		{{wiersz.Name}}
+	</td>
+	<td>
+
+		{{ wiersz.TimeCardNr }}
+	</td>
+	<td>
+		{{wiersz.PersonalNr}}
+	</td>
+	<td>
+		{{wiersz.ilosc_odczytow}}
+		{{wiersz.ilosc_odczytow_48}}
+	</td>
+<tr>
+
+	
+{% endfor %}
+</table>
+</div>
+{% endblock body %}
+
+
